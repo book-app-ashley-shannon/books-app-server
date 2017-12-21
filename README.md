@@ -23,7 +23,8 @@ We are using JavaScript, PSQL, jQuery, Handlebars.js, HTML, node.js, etc.
 ## Change Log
 <!-- Use this are to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. --->
 
-12-19-2017 1:50pm - Have database kind of working and pushed up to Heroku.
+12-19-2017 1:50pm - Have database set up, working and pushed up to Heroku.
+12/20/2017 1:38pm - Have basic css done, working on getting details button working.
 
 ## Credits and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
