@@ -3,6 +3,7 @@
 const express = require('express');
 const cors = require('cors');
 const pg = require('pg');
+const bodyParser = require('body-parser').urlencoded({extended: true});
 
 const app = express();
 const PORT = process.env.PORT;
@@ -28,12 +29,13 @@ app.get('/api/v1/books/:id', (req, res) => {
   .catch(console.log);
 });
 
-app.post('/api/v1/books', (req, res) => { 
+app.post('/api/v1/books', bodyParser, (req, res) => {
   client.query(
     'insert into books(title, author, isbn, image_url, description) values($1, $2, $3, $4, $5)',
     [req.body.title, req.body.author, req.body.isbn, req.body.image_url, req.body.description]
-  );
-}); 
+  )
+  .then(result => res.send('insertion complete'));
+});
 
 app.get('*', (req, res) => res.redirect(CLIENT_URL));
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
