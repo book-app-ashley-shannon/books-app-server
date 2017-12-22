@@ -42,7 +42,6 @@ app.delete('/api/v1/books/:id', (req, res) => {
   client.query(`DELETE FROM books WHERE book_id=$1`, [req.params.id])
   .then(() => res.sendStatus(204))
   .catch(console.log);
-  );
 });
 
 app.get('*', (req, res) => res.redirect(CLIENT_URL));
