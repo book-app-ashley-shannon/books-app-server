@@ -44,5 +44,10 @@ app.delete('/api/v1/books/:id', (req, res) => {
   .catch(console.log);
 });
 
+app.put('/api/v1/books/:id', bodyParser, (req, res) => {
+  client.query(`update books set title= $1, author= $2, isbn= $3, image_url= $4, description= $5 where book_id= $6`, 
+[req.body.title, req.body.author, req.body.isbn, req.body.image_url, req.body.description, req.params.id])
+}); 
+
 app.get('*', (req, res) => res.redirect(CLIENT_URL));
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
